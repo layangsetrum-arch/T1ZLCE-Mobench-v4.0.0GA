@@ -112,7 +112,7 @@ Batas Tindakan: Hanya penyusunan dokumen `docs/revisi/REVISION_PLAN.md`. Impleme
 - **Rujukan Temuan:** AUD-06 (README menunjuk nama repo lama `ZLCEv3.2.2` dan badge CI 404).
 - **Masalah:** Tautan isu, badge CI, dan dokumentasi mengarahkan ke repositori usang atau rusak.
 - **Perubahan Tepat:**
-  1. Perbarui seluruh URL repositori pada `README.md` ke `https://github.com/acimau99-netizen/ZLCE3.22-studio`.
+  1. Perbarui seluruh URL repositori pada `README.md` ke `https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA`.
   2. Ganti badge CI yang mengarah ke file workflow lama dengan badge status linter/test lokal atau tautan ke dokumentasi pengujian.
   3. Perjelas keterangan bahwa ZLCE Studio dapat berjalan sepenuhnya tanpa server tambahan.
 - **Berkas Terdampak:** `README.md`.

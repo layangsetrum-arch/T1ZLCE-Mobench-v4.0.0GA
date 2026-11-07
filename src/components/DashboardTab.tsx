@@ -1278,7 +1278,7 @@ const DashboardTabComponent: React.FC<DashboardTabProps> = ({
             <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
               <div className="space-y-0.5">
                 <span className="text-slate-400 block text-[10px]">REMOTE ORIGIN TERHUBUNG:</span>
-                <span className="text-emerald-400 font-bold break-all">https://github.com/acimau99-netizen/ZLCE3.22-studio.git</span>
+                <span className="text-emerald-400 font-bold break-all">https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git</span>
               </div>
               <div className="text-left sm:text-right space-y-0.5 shrink-0">
                 <span className="text-slate-400 block text-[10px]">CABANG AKTIF:</span>

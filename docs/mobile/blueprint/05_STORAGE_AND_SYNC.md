@@ -47,10 +47,10 @@ PWA menyediakan **Project Switcher** yang memungkinkan anggota tim mengelola beb
     {
       "id": "proj-todo-api",
       "name": "Todo API Service",
-      "termuxPath": "~/projects/todo-api",
-      "mode": "LITE",
-      "gitRemote": "https://github.com/acimau99-netizen/proyek-bersama.git",
-      "activeBranch": "task/TASK-002",
+      "termuxPath": "~/projects/T1ZLCE-Mobench-v4.0.0GA",
+      "mode": "FULL",
+      "gitRemote": "https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git",
+      "activeBranch": "v4-mobile",
       "lastAccessed": 1730700000000
     }
   ]

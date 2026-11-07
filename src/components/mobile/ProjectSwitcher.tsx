@@ -65,7 +65,7 @@ export const ProjectSwitcher: React.FC<ProjectSwitcherProps> = ({ className = ''
   const handleOpenAddModal = () => {
     setFormName('');
     setFormTermuxPath('~/projects/proyek-baru');
-    setFormRepoUrl('https://github.com/acimau99-netizen/proyek-baru.git');
+    setFormRepoUrl('https://github.com/layangsetrum-arch/proyek-baru.git');
     setFormBranch('main');
     setFormMode('FULL');
     setFormMember('eko');

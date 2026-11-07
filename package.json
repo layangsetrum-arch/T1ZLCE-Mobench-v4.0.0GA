@@ -2,6 +2,10 @@
   "name": "zlce-studio",
   "private": true,
   "version": "4.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",

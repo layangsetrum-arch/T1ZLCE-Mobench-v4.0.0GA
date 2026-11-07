@@ -4,9 +4,9 @@ import { ProjectMeta } from '../types/mobile';
 export const DEFAULT_PROJECTS: ProjectMeta[] = [
   {
     id: 'zlce-mobile-workbench',
-    name: 'ZLCE Mobile Workbench',
-    termuxPath: '~/projects/ZLCE3.22-studio',
-    repoUrl: 'https://github.com/acimau99-netizen/ZLCE3.22-studio.git',
+    name: 'ZLCE Mobile Workbench v4.0.0',
+    termuxPath: '~/projects/T1ZLCE-Mobench-v4.0.0GA',
+    repoUrl: 'https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git',
     branch: 'v4-mobile',
     activeMemberId: 'eko',
     lastAccessed: new Date().toISOString(),
@@ -17,7 +17,7 @@ export const DEFAULT_PROJECTS: ProjectMeta[] = [
     id: 'todo-api-service',
     name: 'Todo API Microservice',
     termuxPath: '~/projects/todo-api',
-    repoUrl: 'https://github.com/acimau99-netizen/todo-api.git',
+    repoUrl: 'https://github.com/layangsetrum-arch/todo-api.git',
     branch: 'task/TASK-002',
     activeMemberId: 'oned',
     lastAccessed: new Date(Date.now() - 3600000).toISOString(),
@@ -36,7 +36,17 @@ export function useProjectRegistry() {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
+          // Migrasi otomatis URL repositori lama jika tersimpan di localStorage browser
+          return parsed.map((p: ProjectMeta) => {
+            if (p.id === 'zlce-mobile-workbench' || p.repoUrl?.includes('ZLCE3.22-studio')) {
+              return {
+                ...p,
+                termuxPath: '~/projects/T1ZLCE-Mobench-v4.0.0GA',
+                repoUrl: 'https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git'
+              };
+            }
+            return p;
+          });
         }
       }
     } catch {

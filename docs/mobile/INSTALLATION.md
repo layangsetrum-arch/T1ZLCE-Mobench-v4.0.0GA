@@ -57,8 +57,8 @@ mkdir -p ~/projects
 cd ~/projects
 
 # 2. Clone repositori bersama ZLCE
-git clone https://github.com/organization/zlce-mobile-workbench.git
-cd zlce-mobile-workbench
+git clone https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git
+cd T1ZLCE-Mobench-v4.0.0GA
 
 # 3. Pastikan branch kerja v4-mobile aktif
 git checkout v4-mobile
@@ -78,7 +78,7 @@ Agar perintah diagnostik dapat dipanggil dengan singkat (misalnya `zlce check`),
 mkdir -p ~/bin
 
 # 2. Buat symlink ke dispatcher zlce
-ln -sf ~/projects/zlce-mobile-workbench/scripts/zlce/zlce ~/bin/zlce
+ln -sf ~/projects/T1ZLCE-Mobench-v4.0.0GA/scripts/zlce/zlce ~/bin/zlce
 
 # 3. Muat ulang path shell
 export PATH="$HOME/bin:$PATH"

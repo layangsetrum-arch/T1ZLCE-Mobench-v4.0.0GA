@@ -122,7 +122,7 @@ Dilarang menghalusinasikan waktu nyata (gunakan "jam: ?").
 
 Sesuai persetujuan pengguna atas **Rekomendasi Optimal (Satu Repositori Bersama + Branch per Task)**:
 
-1. **Satu Repositori Bersama di GitHub:** `acimau99-netizen/proyek-bersama`.
+1. **Satu Repositori Bersama di GitHub:** `layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA`.
 2. **Branching Model:**
    - `main`: Branch produksi / rilis stabil (terlindungi, hanya bisa di-merge via Pull Request yang lulus uji).
    - `task/TASK-001`, `task/TASK-002`, dst.: Setiap task dikerjakan pada branch tersendiri.

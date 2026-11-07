@@ -58,7 +58,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: 'acimau@zlce.local',
     avatarColor: 'from-rose-600 to-red-500',
     aiPreference: 'Gemini 2.5 Pro',
-    notes: 'Pengelola remote repository (acimau99-netizen/ZLCE3.22-studio.git) & merge branch'
+    notes: 'Pengelola remote repository (layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git) & merge branch'
   },
   {
     id: 'kepek',

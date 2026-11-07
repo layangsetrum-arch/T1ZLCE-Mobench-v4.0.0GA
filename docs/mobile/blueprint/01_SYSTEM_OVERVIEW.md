@@ -57,7 +57,7 @@ Sistem ini mentransformasikan metodologi **Zero-Loss Context Engineering (ZLCE)*
           ▼
 ┌──────────────────────────────────────────────────────────────┐
 │                 GITHUB REMOTE REPOSITORY                     │
-│         https://github.com/acimau99-netizen/proyek-bersama   │
+│    https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA      │
 │         Branch 'main' (Protected) + Branch 'task/TASK-xxx'   │
 └──────────────────────────────────────────────────────────────┘
 ```

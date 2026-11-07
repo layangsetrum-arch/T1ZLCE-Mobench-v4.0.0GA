@@ -44,8 +44,8 @@ Sesuai arahan pengguna, skema versi dan percabangan diatur sebagai berikut:
 ```
 
 - **Strategi Cabang Kerja:**
-  - Branch pengembangan Track 2 dilakukan pada cabang `v4-mobile` di repositori kerja (`ZLCE3.22-studio`).
-  - Remote asal `acimau99-netizen/ZLCE3.22-studio` didaftarkan sebagai `upstream` berstatus **read-only** untuk mengambil pembaruan inti ZLCE bila kelak ada update Core.
+  - Branch pengembangan Track 2 dilakukan pada cabang `v4-mobile` di repositori kerja (`T1ZLCE-Mobench-v4.0.0GA`).
+  - Remote kerja `layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA` terhubung untuk sinkronisasi cabang kerja dan rilis.
 
 ---
 

@@ -11,8 +11,8 @@ Batas Tulis: Hanya `docs/revisi/AUDIT_3.22.md`. Berkas lain berstatus baca-saja.
 
 | Properti | Nilai / Kondisi Aktual | Bukti | Klasifikasi |
 | :--- | :--- | :--- | :--- |
-| **Repositori Asal** | `https://github.com/acimau99-netizen/ZLCE3.22-studio.git` | Instruksi Master Prompt v5 Bagian 1.1 | **VERIFIED** |
-| **Repositori Kerja** | Lingkungan runtime AI Studio Build (impor dari GitHub repo `acimau99-netizen/ZLCE3.22-studio`) | Metadata sistem AI Studio | **VERIFIED** |
+| **Repositori Asal** | `https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git` | Instruksi Master Prompt v5 Bagian 1.1 | **VERIFIED** |
+| **Repositori Kerja** | Lingkungan runtime AI Studio Build (impor dari GitHub repo `layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA`) | Metadata sistem AI Studio | **VERIFIED** |
 | **Status `.git` Lokal** | Direktori `.git` tidak disertakan di container runtime web AI Studio | Perintah `git remote -v && git status` menghasilkan `fatal: not a git repository (or any of the parent directories): .git` (exit 128) | **VERIFIED** |
 | **Commit HEAD / Tag Asal** | Baseline impor berbasis snapshot zip arsip `ZLCEv3.2.2-main_56612ab6.zip` dan `zlce-starter-kit-v3.2.2.zip` di `public/assets/` | SHA256: `2351e27e140ab88814dfc29611db3c43a71019b2db606fcaa2b3ed26fca95daa` | **VERIFIED** |
 | **Temuan Konsistensi Nama** | Nama repo lama ditemukan di beberapa berkas (`ZLCEv3.2.2`, `SYSTRUKZLCE3.22`), berbeda dengan nama repo kerja `ZLCE3.22-studio` | `README.md:9` (`github.com/acimau99-netizen/ZLCEv3.2.2`) | **VERIFIED** |

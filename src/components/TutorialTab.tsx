@@ -323,6 +323,16 @@ export const TutorialTab: React.FC<TutorialTabProps> = ({
 
               <div className="flex flex-wrap items-center gap-2">
                 <a
+                  href="https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition-all min-h-[44px]"
+                  title="Buka repositori resmi di GitHub"
+                >
+                  <FolderGit2 className="w-4 h-4 text-cyan-400" />
+                  <span>GitHub Repo</span>
+                </a>
+                <a
                   href="/assets/zlce-audit-review-bundle.zip"
                   download="zlce-audit-review-bundle.zip"
                   className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-900/30 transition-all min-h-[44px]"
@@ -341,15 +351,47 @@ export const TutorialTab: React.FC<TutorialTabProps> = ({
               </div>
             </div>
 
+            {/* GitHub Clone Box */}
+            <div className="mt-5 p-4 rounded-xl bg-slate-950/90 border border-cyan-500/30 font-mono text-xs">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-slate-400 font-semibold flex items-center gap-1.5">
+                  <GitBranch className="w-4 h-4 text-cyan-400" />
+                  Clone Repositori GitHub Resmi di Termux / Linux:
+                </span>
+                <button
+                  onClick={() => copyToClipboard('git clone https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git && cd T1ZLCE-Mobench-v4.0.0GA', 'clone-repo-cmd')}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-[11px] transition-all min-h-[44px]"
+                >
+                  {copiedId === 'clone-repo-cmd' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedId === 'clone-repo-cmd' ? 'Tersalin!' : 'Salin Perintah Clone'}</span>
+                </button>
+              </div>
+              <div className="p-3 rounded-lg bg-black/60 text-cyan-300 overflow-x-auto select-all">
+                git clone https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git &amp;&amp; cd T1ZLCE-Mobench-v4.0.0GA
+              </div>
+              <div className="flex items-center justify-between mt-2 text-[11px] text-slate-400">
+                <span>Repositori: <strong className="text-white">layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA</strong></span>
+                <a 
+                  href="https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:underline flex items-center gap-1"
+                >
+                  <span>Buka di GitHub</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
             {/* Single Command Starter Box */}
-            <div className="mt-5 p-4 rounded-xl bg-slate-950/90 border border-emerald-500/30 font-mono text-xs">
+            <div className="mt-3 p-4 rounded-xl bg-slate-950/90 border border-emerald-500/30 font-mono text-xs">
               <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-slate-400 font-semibold flex items-center gap-1.5">
                   <Terminal className="w-4 h-4 text-emerald-400" />
                   Perintah Peluncuran Produksi Satu-Ketukan di Termux:
                 </span>
                 <button
-                  onClick={() => copyToClipboard('cd ~/projects/zlce-mobile-workbench && bash scripts/zlce-prod-start.sh', 'prod-start-cmd')}
+                  onClick={() => copyToClipboard('cd ~/projects/T1ZLCE-Mobench-v4.0.0GA && bash scripts/zlce-prod-start.sh', 'prod-start-cmd')}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-[11px] transition-all min-h-[44px]"
                 >
                   {copiedId === 'prod-start-cmd' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -357,7 +399,7 @@ export const TutorialTab: React.FC<TutorialTabProps> = ({
                 </button>
               </div>
               <div className="p-3 rounded-lg bg-black/60 text-emerald-300 overflow-x-auto select-all">
-                cd ~/projects/zlce-mobile-workbench &amp;&amp; bash scripts/zlce-prod-start.sh
+                cd ~/projects/T1ZLCE-Mobench-v4.0.0GA &amp;&amp; bash scripts/zlce-prod-start.sh
               </div>
               <p className="text-[11px] text-slate-400 mt-2">
                 Otomatis: normalisasi izin berkas POSIX, validasi 82 task `zlce-check`, kompilasi build `dist/`, dan peluncuran web server lokal di <code className="text-cyan-300">http://localhost:3000</code>.

@@ -100,7 +100,7 @@ Untuk melanjutkan sesi atau berganti AI, gunakan [`HANDOVER_PROMPT.md`](HANDOVER
 **1. Peluncuran Produksi Nyata (Termux di Tablet Samsung Tab A7 Lite / Linux):**
 ```bash
 # Jalankan skrip produksi mandiri (otomatis normalisasi izin, validasi state, build dist & serve)
-cd zlce-mobile-workbench
+cd ~/projects/T1ZLCE-Mobench-v4.0.0GA
 bash scripts/zlce-prod-start.sh
 ```
 Akses di peramban tablet (Chrome/Samsung Internet) pada: <http://localhost:3000>  
@@ -108,8 +108,8 @@ Pilih **"Tambahkan ke Layar Utama" (Install PWA)** untuk pengalaman aplikasi man
 
 **2. Mode Pengembangan Standar:**
 ```bash
-git clone https://github.com/acimau99-netizen/ZLCE3.22-studio.git
-cd ZLCE3.22-studio
+git clone https://github.com/layangsetrum-arch/T1ZLCE-Mobench-v4.0.0GA.git
+cd T1ZLCE-Mobench-v4.0.0GA
 npm install
 npm run dev
 ```
