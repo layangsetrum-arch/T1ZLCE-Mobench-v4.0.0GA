@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# ZLCE Mobile CLI Dispatcher untuk Termux (Android Tablet SM-T225)
+# Rujukan: docs/mobile/blueprint/04_TERMUX_INTEGRATION.md & TASK-028 & TASK-065 (AUD-019)
+# ==============================================================================
+set -euo pipefail
+
+SUBCOMMAND="${1:-help}"
+shift 2>/dev/null || true
+
+# Root repositori acuan
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+case "$SUBCOMMAND" in
+  check)
+    if [ -f "$REPO_ROOT/scripts/zlce-check.py" ]; then
+      python3 "$REPO_ROOT/scripts/zlce-check.py" "$REPO_ROOT" "$@"
+    elif [ -f "$SCRIPT_DIR/zlce-check.py" ]; then
+      python3 "$SCRIPT_DIR/zlce-check.py" "$REPO_ROOT" "$@"
+    else
+      echo "[ERROR] zlce-check.py tidak ditemukan." >&2
+      exit 1
+    fi
+    ;;
+  snapshot)
+    if [ -f "$REPO_ROOT/scripts/zlce-snapshot.sh" ]; then
+      bash "$REPO_ROOT/scripts/zlce-snapshot.sh" "$REPO_ROOT" "$@"
+    elif [ -f "$SCRIPT_DIR/zlce-snapshot.sh" ]; then
+      bash "$SCRIPT_DIR/zlce-snapshot.sh" "$REPO_ROOT" "$@"
+    else
+      echo "[ERROR] zlce-snapshot.sh tidak ditemukan." >&2
+      exit 1
+    fi
+    ;;
+  collect)
+    if [ -f "$REPO_ROOT/scripts/zlce-collect.py" ]; then
+      python3 "$REPO_ROOT/scripts/zlce-collect.py" "$REPO_ROOT" "$@"
+    elif [ -f "$SCRIPT_DIR/zlce-collect.py" ]; then
+      python3 "$SCRIPT_DIR/zlce-collect.py" "$REPO_ROOT" "$@"
+    else
+      echo "[ERROR] zlce-collect.py tidak ditemukan." >&2
+      exit 1
+    fi
+    ;;
+  pull)
+    TARGET_BRANCH="${1:-$(git -C "$REPO_ROOT" branch --show-current 2>/dev/null || echo "")}"
+    if [ -z "$TARGET_BRANCH" ]; then
+      echo "[ERROR] HEAD detached atau tidak di dalam cabang git; sebutkan cabang secara eksplisit (cth: zlce pull task/TASK-xxx)." >&2
+      exit 1
+    fi
+    if [ -n "$(git -C "$REPO_ROOT" status --porcelain 2>/dev/null)" ]; then
+      echo "[ERROR] Working tree kotor. Commit perubahan atau jalankan 'zlce snapshot' terlebih dahulu sebelum pull." >&2
+      exit 1
+    fi
+    echo "[ZLCE] Menarik pembaruan aman untuk cabang: $TARGET_BRANCH"
+    git -C "$REPO_ROOT" fetch origin "$TARGET_BRANCH"
+    git -C "$REPO_ROOT" checkout "$TARGET_BRANCH"
+    git -C "$REPO_ROOT" merge --ff-only "origin/$TARGET_BRANCH"
+    echo "[OK] Cabang $TARGET_BRANCH tersinkronisasi bersih (ff-only)."
+    ;;
+  push)
+    CURRENT_BRANCH="$(git -C "$REPO_ROOT" branch --show-current 2>/dev/null || echo "")"
+    if [ -z "$CURRENT_BRANCH" ]; then
+      echo "[ERROR] Tidak berada dalam cabang git yang sah." >&2
+      exit 1
+    fi
+    if [ "$CURRENT_BRANCH" = "main" ]; then
+      echo "[ERROR ZLCE] Mendorong langsung ke cabang 'main' diblokir! Gunakan branch per-task (task/TASK-xxx)." >&2
+      exit 1
+    fi
+    echo "[ZLCE] Mendorong cabang '$CURRENT_BRANCH' ke origin..."
+    git -C "$REPO_ROOT" push origin "$CURRENT_BRANCH"
+    ;;
+  clean-auth)
+    if [ -f "$SCRIPT_DIR/clean-auth.sh" ]; then
+      bash "$SCRIPT_DIR/clean-auth.sh"
+    elif [ -f "$REPO_ROOT/scripts/zlce/clean-auth.sh" ]; then
+      bash "$REPO_ROOT/scripts/zlce/clean-auth.sh"
+    else
+      git credential-cache exit 2>/dev/null || true
+      echo "[OK] Git credential cache cleared for device handover (Zero-Secret enforced)."
+    fi
+    ;;
+  help|-h|--help)
+    echo "============================================================"
+    echo "ZLCE Mobile CLI Dispatcher v4.0.0 (Termux / Android)"
+    echo "============================================================"
+    echo "Penggunaan: zlce <subperintah> [argumen...]"
+    echo ""
+    echo "Subperintah resmi yang diizinkan (allowlist):"
+    echo "  check      Validasi SESSION_STATE.md & TASKS.md (opsi: --strict, --no-git)"
+    echo "  snapshot   Ambil snapshot recovery diff dan status git (opsi: --diff)"
+    echo "  collect    Kemas dokumen kontrol ZLCE ke arsip ZIP aman"
+    echo "  pull       Tarik pembaruan cabang secara aman (--ff-only)"
+    echo "  push       Dorong cabang task aktif ke repositori remote (blokir main)"
+    echo "  clean-auth Bersihkan credential cache dari memori RAM tablet"
+    echo "  help       Tampilkan pesan bantuan ini"
+    echo "============================================================"
+    ;;
+  *)
+    echo "[ERROR ZLCE] Subperintah '$SUBCOMMAND' tidak diizinkan oleh allowlist dispatcher." >&2
+    echo "Gunakan 'zlce help' untuk melihat daftar subperintah yang sah." >&2
+    exit 1
+    ;;
+esac

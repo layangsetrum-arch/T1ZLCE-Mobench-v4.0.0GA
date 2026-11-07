@@ -1,0 +1,8 @@
+{
+  "name": "T1ZLCE Mobench v4.0.0GA",
+  "description": "ZLCE Mobile Workbench v4.0.0 GA Hardened",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
